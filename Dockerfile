@@ -9,8 +9,10 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
 ARG RUBY_VERSION=3.4.7
-ARG GH_USER
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+
+# Redeclare ARG to make it available in this stage
+ARG GH_USER
 
 # Rails app lives here
 WORKDIR /rails
