@@ -21,6 +21,10 @@ module Fizzy
           end
         end
       end
+
+      config.to_prepare do
+        Signup.prepend Fizzy::Oss::SignupExtensions
+      end
     end
   end
 end
