@@ -1,28 +1,27 @@
 # Fizzy::Oss
-Short description and motivation.
+This is a Rails engine for self-hosting Fizzy on your own infrastucture.
 
-## Usage
-How to use my plugin.
+### Signup only active for the first user
 
-## Installation
-Add this line to your application's Gemfile:
+![Disabled signup](screenshot-2025-12-06_16-42-07.png "Disabled signup")
 
-```ruby
-gem "fizzy-oss"
-```
+### Outbound Emails
 
-And then execute:
-```bash
-$ bundle
-```
+Configure email delivery in production using environment variables:
 
-Or install it yourself as:
-```bash
-$ gem install fizzy-oss
-```
+**Delivery Method:**
+- `MAILER_DELIVERY_METHOD` - Set to `smtp` or `sendmail` (default)
 
-## Contributing
-Contribution directions go here.
+**SMTP Settings** (for external mail servers):
+- `SMTP_ADDRESS` - SMTP server address (default: `localhost`)
+- `SMTP_PORT` - SMTP server port (default: `587`)
+- `SMTP_DOMAIN` - Your domain name
+- `SMTP_USERNAME` - SMTP authentication username
+- `SMTP_PASSWORD` - SMTP authentication password
+- `SMTP_AUTHENTICATION` - Authentication type (default: `plain`)
+- `SMTP_ENABLE_STARTTLS_AUTO` - Enable STARTTLS (default: `true`)
 
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+**Sendmail Settings** (for local mail transfer agent):
+- `SENDMAIL_LOCATION` - Path to sendmail binary (default: `/usr/sbin/sendmail`)
+- `SENDMAIL_ARGUMENTS` - Command-line arguments (default: `-i`)
+
